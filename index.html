@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TPMC Portal</title>
+        <style>
+            body {
+                background: linear-gradient(135deg, #a8edea, #fed6e3);
+                font-family: 'Arial', sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                color: #333;
+                overflow: hidden;
+            }
+
+            .login-container {
+                background: rgba(255, 255, 255, 0.2);
+                padding: 2.5rem;
+                border-radius: 15px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(10px);
+                text-align: center;
+                animation: float 6s infinite ease-in-out;
+            }
+
+            @keyframes float {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-20px);
+                }
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+                color: #333;
+                font-weight: bold;
+            }
+
+            input {
+                width: 100%;
+                padding: 0.75rem;
+                margin: 0.75rem 0;
+                border: none;
+                border-radius: 8px;
+                background: rgba(255, 255, 255, 0.3);
+                color: #333;
+                font-size: 1rem;
+                transition: background 0.3s ease;
+            }
+
+            input:focus {
+                background: rgba(255, 255, 255, 0.5);
+                outline: none;
+            }
+
+            input::placeholder {
+                color: rgba(51, 51, 51, 0.7);
+            }
+
+            button {
+                width: 100%;
+                padding: 0.75rem;
+                margin-top: 1.5rem;
+                border: none;
+                border-radius: 8px;
+                background: #a8edea;
+                color: #333;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background 0.3s ease, transform 0.3s ease;
+            }
+
+            button:hover {
+                background: #fed6e3;
+                transform: scale(1.05);
+            }
+
+            .error-message {
+                color: #ff6b6b;
+                margin-top: 1.5rem;
+                display: none;
+                font-weight: bold;
+            }
+
+            .stars {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                z-index: -1;
+            }
+
+            .stars span {
+                position: absolute;
+                background: rgba(255, 255, 255, 0.8);
+                border-radius: 50%;
+                animation: twinkle 3s infinite ease-in-out;
+            }
+
+            @keyframes twinkle {
+                0%, 100% {
+                    opacity: 0.5;
+                }
+                50% {
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="stars">
+            <!-- Add some star elements for a dreamy effect -->
+            <span style="top: 10%; left: 20%; width: 2px; height: 2px;"></span>
+            <span style="top: 30%; left: 50%; width: 3px; height: 3px;"></span>
+            <span style="top: 50%; left: 80%; width: 2px; height: 2px;"></span>
+            <span style="top: 70%; left: 10%; width: 3px; height: 3px;"></span>
+            <span style="top: 90%; left: 40%; width: 2px; height: 2px;"></span>
+        </div>
+        <div class="login-container">
+            <h1>TPMC Portal</h1>
+            <input type="text" id="username" placeholder="登入名稱" autocomplete="off">
+            <input type="password" id="password" placeholder="密碼" autocomplete="off">
+            <button onclick="login()">登入</button>
+            <div id="error-message" class="error-message">錯誤的登入名稱或密碼！</div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

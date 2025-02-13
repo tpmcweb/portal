@@ -1,0 +1,263 @@
+ <!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Warning Letter Generator</title>
+
+    <style>
+
+        @media print {
+
+            body {
+
+                margin: 0;
+
+                padding: 20px;
+
+                font-family: Arial, sans-serif;
+
+            }
+
+            .page-break {
+
+                page-break-before: always;
+
+            }
+
+            .print-hide {
+
+                display: none;
+
+            }
+
+        }
+
+        .container {
+
+            max-width: 210mm;
+
+            min-height: 297mm;
+
+            margin: 20px auto;
+
+            padding: 30px;
+
+        }
+
+        .header {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+        }
+
+        .document-number {
+
+            float: right;
+
+            margin: 20px;
+
+        }
+
+        .content {
+
+            line-height: 1.6;
+
+            margin: 40px 0;
+
+        }
+
+        .input-field {
+
+            width: 200px;
+
+            margin: 5px;
+
+            padding: 3px;
+
+        }
+
+        .signature-section {
+
+            margin-top: 50px;
+
+            float: right;
+
+        }
+
+        .parents-reply {
+
+            margin-top: 100px;
+
+        }
+
+        .underline {
+
+            border-bottom: 1px solid black;
+
+            display: inline-block;
+
+            min-width: 200px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Page 1 -->
+
+        <div class="header">
+
+            <h1>Tai Po Methodist Centre</h1>
+
+            <h2>School Warning Letter</h2>
+
+        </div>
+
+        
+
+        <div class="document-number">
+
+            Document No.: <span id="docNumber"></span>
+
+        </div>
+
+
+
+        <div class="content">
+
+            <p>Date: <input type="date" class="input-field" id="violationDate"></p>
+
+            
+
+            <p>To the Parent/Guardian of:<br>
+
+            Student Name: <input type="text" class="input-field" id="studentName"><br>
+
+            Class: <input type="text" class="input-field" id="studentClass"><br>
+
+            Student Number: <input type="text" class="input-field" id="studentNumber"></p>
+
+
+
+            <p>This is to formally inform you that your child has been issued a school warning due to the following violation(s):</p>
+
+            
+
+            <p>Violation Date: <span id="displayDate"></span><br>
+
+            Violation Details:<br>
+
+            <textarea class="input-field" id="violations" rows="4" cols="50"></textarea></p>
+
+
+
+            <p>This incident has been recorded in the school's disciplinary records. We urge you to discuss this matter seriously with your child and emphasize the importance of adhering to school regulations.</p>
+
+
+
+            <p>Should there be any recurrence of similar misconduct, more severe disciplinary action will be taken according to school policies.</p>
+
+
+
+            <div class="signature-section">
+
+                <p>Yours faithfully,<br>
+
+                <input type="text" class="input-field" id="teacherName" placeholder="Teacher's Name"><br>
+
+                <em>Responsible Teacher</em></p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Page 2 -->
+
+        <div class="parents-reply page-break">
+
+            <h3>Parent's Acknowledgement and Reply</h3>
+
+            <p>Student Name: ___________________________</p>
+
+            
+
+            <p>I hereby acknowledge receipt of this warning letter dated <span id="replyDate"></span>.</p>
+
+            
+
+            <p>Parent's Comments:<br>
+
+            <textarea rows="6" cols="60" placeholder="Please write your comments here..."></textarea></p>
+
+
+
+            <p>Parent/Guardian Name: ___________________________</p>
+
+            <p>Signature: ___________________________ Date: ___________________________</p>
+
+            
+
+            <p><em>Please return this signed copy to the school office within 3 working days</em></p>
+
+        </div>
+
+    </div>
+
+
+
+    <button onclick="generatePDF()" class="print-hide">Generate PDF</button>
+
+
+
+    <script>
+
+        // Generate random document number
+
+        function generateDocNumber() {
+
+            return Math.floor(10000000000000 + Math.random() * 90000000000000);
+
+        }
+
+
+
+        // Set document number and dates
+
+        document.getElementById('docNumber').textContent = generateDocNumber();
+
+        
+
+        // Set violation date display
+
+        document.getElementById('violationDate').addEventListener('change', function(e){
+
+            document.getElementById('displayDate').textContent = e.target.value;
+
+            document.getElementById('replyDate').textContent = e.target.value;
+
+        });
+
+
+
+        function generatePDF() {
+
+            window.print();
+
+        }
+
+    </script>
+
+</body>
+
+</html>

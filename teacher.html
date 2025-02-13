@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <link rel="icon" href="tpmclogo.jpg" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Portal</title>
+    <script>
+    function checkLoginStatus(){const loggedInUser=localStorage.getItem("loggedInUser");if(loggedInUser!=="teacher"){alert("未經授權的訪問！請先登入。");window.location.href="index.html";}}// 登出功能
+function logout(){localStorage.removeItem("loggedInUser");window.location.href="index.html";}// 頁面加載時檢查登入狀態
+checkLoginStatus();</script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f8ff; /* Very light blue */
+            color: #333; /* Dark text for readability */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            width: 100%;
+            height: 200px; /* Height of the header */
+            background-image: url('background.jpg'); /* Local image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px; /* Max width for the card */
+            margin-top: 20px; /* Space between header and buttons */
+        }
+        .welcome-box {
+            background-color: #e7f0ff; /* Light blue background for welcome box */
+            border: 1px solid #007bff; /* Border color */
+            border-radius: 10px; /* Rounded corners for the welcome box */
+            padding: 20px; /* Padding inside the welcome box */
+            text-align: center; /* Center the text */
+            margin-bottom: 20px; /* Space below the welcome box */
+        }
+        h1 {
+            margin: 0; /* Remove margin for the heading */
+            color: #007bff; /* Bright blue text */
+        }
+        h2 {
+            margin-top: 20px;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+        }
+        .se1 { background-color: #66b3ff; } /* Light blue */
+        .se2 { background-color: #ffcc66; } /* Light yellow */
+        .se3 { background-color: #66ff66; } /* Light green */
+        .se4 { background-color: #ff6666; } /* Light red */
+        p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #007bff; /* Button color */
+            color: white;
+            border: none;
+            padding: 12px 20px; /* Padding for the button */
+            font-size: 16px;
+            border-radius: 8px; /* Rounded corners for the button */
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%; /* Full width for buttons */
+        }
+        .button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+        @media (max-width: 480px) {
+            .header {
+                font-size: 24px; /* Smaller header text on mobile */
+            }
+            h1 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 16px;
+            }
+            .button {
+                font-size: 14px;
+            }
+        }
+        .block-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            flex-direction: column;
+            z-index: 10;
+        }
+
+        .block-overlay h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .block-overlay p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .block-overlay .lock-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        window.addEventListener('beforeunload', function (e) {
+            // Cancel the event to show the alert
+            e.preventDefault();
+            // Chrome requires returnValue to be set
+            e.returnValue = 'Are you sure you want to leave? Please remember to log out.';
+        });
+    </script>
+</head>
+<body>
+    
+    <div class="header">TPMC Portal</div>
+    <div class="container">
+        <div class="welcome-box">
+            <h1>Welcome Back!</h1>
+            <p>You have successfully logged in.</p>
+                                    <button class="button" onclick="window.location.href='loader.html'">Safe Key Login Website</button>
+        </div>
+        
+        <h2 class="se1">Personal and Communications</h2>
+        <div class="button-container">
+            <button class="button" onclick="window.location.href='https://mail.google.com'">Gmail</button>
+            <button class="button" onclick="window.location.href='https://www.hko.gwww.mail.google.ov.hk/tc/index.html'">Weather</button>
+            <button class="button" onclick="window.location.href='mdm.html'">Drive MDM</button>
+            <button class="button" onclick="window.location.href='https://tpmc-messager.w3spaces.com/viewer.html'">Messager</button>
+        </div>
+
+        <h2 class="se2">Administration and Learning</h2>
+        <div class="button-container">
+            <button class="button" onclick="window.location.href='https://classroom.google.com'">Google Classroom</button>
+            <button class="button" onclick="window.location.href='ebooks.html'">E-books</button>
+            <button class="button" onclick="window.location.href='forms.html'">Google Forms</button>
+             <button class="button" onclick="window.location.href='https://tpmc-report.w3spaces.com/'">SAR Data Finder</button>
+                <button class="button" onclick="window.location.href='https://tpmcemail.w3spaces.com/'">Email Generator</button>
+  <button class="button" onclick="window.location.href='lettergenerate.html'">Authorisation Letter</button>
+   <button class="button" onclick="window.location.href='reservetec.html'">Reservation Form</button>
+           
+        </div>
+
+        <h2 class="se3">Student Affairs</h2>
+        <div class="button-container">
+            <button class="button" onclick="window.location.href='attendance.html'">Student Attendance</button>
+            <button class="button" onclick="window.location.href='sickstudents.html'">Student Absence</button>
+            <button class="button" onclick="window.location.href='classpass.html'">Student Reset Password</button>
+        </div>
+
+        <h2 class="se4">Log Out</h2>
+        <div class="button-container">
+           <div class="button-container"><button class="button" onclick="logout()">Log Out</button></div></div>
+        </div>
+    </div>
+    
+</body>
+</html>

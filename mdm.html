@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+        <link rel="icon" href="tpmclogo.jpg" type="image/png">
+<style>
+
+  .my-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+    .checkbox-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .checkbox-label {
+    margin-right: 10px;
+  }
+
+  .checkbox-input {
+    margin-left: 5px;
+  }
+</style>
+
+<head>
+  <h1>Tai Po Methodist Centre MDM</h1>
+<div class="container">
+    <button class="my-button">Lock Students Device</button>
+  <br>
+  <br>
+  <div class="container">
+    <button class="my-button">Unlock Students Device</button>
+    <br>
+    <br>
+  <div class="container">
+    <button class="my-button">Students Teleport To This Website</button>
+    <input type="text" class="my-input">
+  <br>
+  <br>
+  <div class="container">
+    <button class="my-button">Alert Students</button>
+    <input type="text" class="my-input">
+    <br>
+    <br>
+    <div class="container">
+    <button class="my-button">Students Open This App</button>
+      <input type="text" class="my-input">
+      <br>
+      <br>
+      <button class="my-button">Students Open This File</button>
+      <input type="file" class="my-input">     
+      <br>
+      <br>
+      <button class="my-button">Students Exit The Apps Or File</button>
+      <br>
+      <br>
+          <div class="checkbox-container">
+    <h2 class="checkbox-label" for="my-checkbox">Students Can't Move</h2>
+    <input type="checkbox" id="my-checkbox" class="checkbox-input">
+          
+  </div>
+  </div>
+      
+</body>
+      <script>
+    function generateRandomNumber() {
+      var randomNumber = Math.floor(Math.random() * 1000000000000000) + 1;
+      document.getElementById("randomNumber").innerHTML = randomNumber;
+    }
+
+    setInterval(generateRandomNumber, 1000);
+  </script>
+    <p id="randomNumber">564557279448899</p>
+  <br>
+    <br>
+    <button onclick="window.location.href = 'index.html';">Log Out</button>
+</body>
+  </head>
+</html>
